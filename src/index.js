@@ -5,19 +5,20 @@ import './index.css';
 
 class Game extends React.Component {
     state = {
-        height: 10,
+        height: 8,
         width: 8,
+        mines: 10,
     };
 
     handleGameStart = () => {
     }
 
     render() {
-        const { height, width} = this.state;
+        const { height, width, mines} = this.state;
         return (
             <div className="game">
                 <div className="game-info" />
-                <Board height={height} width={width}  />
+                <Board height={height} width={width}  mines={mines} />
             </div>
         );
     }
