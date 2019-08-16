@@ -15,6 +15,7 @@ class Game extends React.Component {
 
     render() {
         const { height, width, mines} = this.state;
+        console.log();
         return (
             <div className="game">
                 <div className="game-info" />
