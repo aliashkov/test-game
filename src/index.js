@@ -7,15 +7,14 @@ class Game extends React.Component {
     state = {
         height: 8,
         width: 8,
-        mines: 10,
+        mines: 15,
     };
 
     handleGameStart = () => {
     }
 
     render() {
-        const { height, width, mines} = this.state;
-        console.log();
+        const { height, width, mines } = this.state;
         return (
             <div className="game">
                 <div className="game-info" />
