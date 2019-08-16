@@ -11,7 +11,7 @@ export default class Board extends React.Component {
         return Math.floor((Math.random() * 1000) + 1) % dimension;
     }
 
-    initBoardData(height, width,mines) {
+    initBoardData(height, width, mines) {
         let data = [];
         for (let i = 0; i < height; i++) {
             data.push([]);
@@ -90,7 +90,7 @@ export default class Board extends React.Component {
         return el;
     }
 
-    
+
     plantMines(data, height, width, mines) {
         let randomx, randomy, minesPlanted = 0;
 
@@ -107,26 +107,21 @@ export default class Board extends React.Component {
     }
 
     renderBoard(data) {
-        return data.map((datarow) => {
-            return datarow.map((dataitem) => {
-                return (
-                    <div key={dataitem.x * datarow.length + dataitem.y}>
-                        <Cell
-                            value={dataitem}
-                        />
-                        {(datarow[datarow.length - 1] === dataitem) ? <div className="clear" /> : ""}
-                    </div>);
-            })
-        });
+        let cell = (dataitem, datarow) => (
+            <div key={dataitem.x * datarow.length + dataitem.y}>
+                <Cell value={dataitem} />
+                {(datarow[datarow.length - 1] === dataitem) ? <div className="clear" /> : ""}
+            </div>);
+        return data.map((datarow) => datarow.map((dataitem) => cell(dataitem, datarow)));
     }
 
 
     render() {
         return (
             <div className="board">
-            {
-                this.renderBoard(this.state.boardData)
-            }
+                {
+                    this.renderBoard(this.state.boardData)
+                }
             </div>
         );
     }
