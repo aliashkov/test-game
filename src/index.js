@@ -7,7 +7,7 @@ class Game extends React.Component {
     state = {
         height: 8,
         width: 8,
-        mines: 10,
+        mines: 15,
     };
 
     handleGameStart = () => {

@@ -90,7 +90,6 @@ export default class Board extends React.Component {
         return el;
     }
 
-
     plantMines(data, height, width, mines) {
         let randomx, randomy, minesPlanted = 0;
 
