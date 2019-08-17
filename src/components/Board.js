@@ -31,20 +31,13 @@ export default class Board extends React.Component {
     }
 
     getNeighbours(data, height, width) {
-        let updatedData = data, index = 0;
+        let updatedData = data;
         for (let i = 0; i < height; i++) {
             for (let j = 0; j < width; j++) {
                 if (data[i][j].isMine !== true) {
                     let mine = 0;
                     const area = this.traverseBoard(data[i][j].x, data[i][j].y, data);
-                    area.map(value => {
-                        if (value.isMine) {
-                            mine++;
-                        }
-                    });
-                    if (mine === 0) {
-                        updatedData[i][j].isEmpty = true;
-                    }
+                    area.map(value => (value.isMine) ? mine++ : mine);
                     updatedData[i][j].neighbour = mine;
                 }
             }

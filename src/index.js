@@ -10,15 +10,11 @@ class Game extends React.Component {
         mines: 15,
     };
 
-    handleGameStart = () => {
-    }
-
     render() {
-        const { height, width, mines } = this.state;
         return (
             <div className="game">
                 <div className="game-info" />
-                <Board height={height} width={width}  mines={mines} />
+                <Board height={this.state.height} width={this.state.width}  mines={this.state.mines} />
             </div>
         );
     }
